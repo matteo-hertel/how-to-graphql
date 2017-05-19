@@ -2,3 +2,4 @@
 
 ## Theory
  - [x] Introduction
+ - [] GraphQL is the better rest
