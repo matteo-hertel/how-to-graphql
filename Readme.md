@@ -2,4 +2,4 @@
 
 ## Theory
  - [x] Introduction
- - [] GraphQL is the better rest
+ - [x] GraphQL is the better rest
