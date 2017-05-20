@@ -3,4 +3,4 @@
 ## Theory
  - [x] Introduction
  - [x] GraphQL is the better rest
- - [] Core Concepts
+ - [x] Core Concepts
