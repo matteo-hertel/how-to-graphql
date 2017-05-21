@@ -4,3 +4,4 @@
  - [x] Introduction
  - [x] GraphQL is the better rest
  - [x] Core Concepts
+ - [x] Big Picture (Architecture)
