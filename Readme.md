@@ -8,4 +8,4 @@
  - [x] Big Picture (Architecture)
 
 ### Advanced
-- [] Advanced Tutorial - Clients
+- [x] Advanced Tutorial - Clients
