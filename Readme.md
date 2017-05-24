@@ -10,5 +10,5 @@
 ### Advanced
 - [x] Advanced Tutorial - Clients
 - [x] Server
-- [] Tooling and Ecosystem
+- [x] Tooling and Ecosystem
 
