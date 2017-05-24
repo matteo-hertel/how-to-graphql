@@ -9,4 +9,6 @@
 
 ### Advanced
 - [x] Advanced Tutorial - Clients
-- [] Server
+- [x] Server
+- [] Tooling and Ecosystem
+
