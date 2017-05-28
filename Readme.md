@@ -15,4 +15,4 @@
 - [x] Common Questions
 
 ## graphql.js Tutorial - Getting Started
-Here you’re going to build the backend for a Hackernews clone 
+Here you’re going to build the backend for a Hackernews clone powered by GraphQL
