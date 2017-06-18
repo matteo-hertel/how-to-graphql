@@ -7,6 +7,10 @@ const typeDefs = `
     url: String!
     description: String!
   }
+
+  type Query {
+    allLinks: [Link!]!
+  }
 `;
 
 // Generate the schema object from your types definition.
