@@ -10,4 +10,7 @@ module.exports = {
             return Object.assign({ id: response.insertedIds[0] }, data); // 4
         },
     },
+    Link: {
+        id: root => root._id || root.id, // 5
+    }
 };
