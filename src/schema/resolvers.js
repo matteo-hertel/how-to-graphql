@@ -5,10 +5,9 @@ module.exports = {
         },
     },
     Mutation: {
-        createLink: (_, data) => {
-            const newLink = Object.assign({ id: links.length + 1 }, data);
-            links.push(newLink);
-            return newLink;
-        }
+        createLink: async (root, data, { mongo: { Links } }) => {
+            const response = await Links.insert(data); // 3
+            return Object.assign({ id: response.insertedIds[0] }, data); // 4
+        },
     },
 };
