@@ -22,6 +22,6 @@ module.exports = {
         },
     },
     Link: {
-        id: root => root._id || root.id, // 5
+        id: root => root._id || root.id,
     }
 };
