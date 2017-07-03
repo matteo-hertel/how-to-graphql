@@ -17,6 +17,15 @@ const typeDefs = `
         name: String!
         email: String
     }
+    type SigninPayload {
+        token: String
+        user: User
+    }
+    type Mutation {
+        createLink(url: String!, description: String!): Link
+        createUser(name: String!, authProvider: AuthProviderSignupData!): User
+        signinUser(email: AUTH_PROVIDER_EMAIL): SigninPayload!
+    }
 
     input AuthProviderSignupData {
         email: AUTH_PROVIDER_EMAIL
@@ -27,10 +36,6 @@ const typeDefs = `
         password: String!
     }
 
-    type Mutation {
-        createLink(url: String!, description: String!): Link
-        createUser(name: String!, authProvider: AuthProviderSignupData!): User
-    }
 `;
 
 // Generate the schema object from your types definition.
