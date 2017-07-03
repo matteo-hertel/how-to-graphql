@@ -14,7 +14,7 @@
     "mongodb": "^2.2.30"
   },
   "scripts": {
-    "start": "node ./src",
+    "dev": "nodemon ./src",
     "init-db": "docker run -p 27017:27017 -d mongo"
   }
 }
