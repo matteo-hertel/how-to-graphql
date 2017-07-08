@@ -25,6 +25,7 @@ const start = async () => {
     app.use('/graphql', bodyParser.json(), graphqlExpress(buildOptions));
     app.use('/graphiql', graphiqlExpress({
         endpointURL: '/graphql',
+        passHeader: `'Authorization': 'bearer token-test@test.com'`,
     }));
 
     const PORT = process.env.SERVER_PORT || 3456;
