@@ -27,8 +27,15 @@ module.exports = {
             if (data.email.password === user.password) {
                 return { token: `token-${user.email}`, user };
             }
-        }
-
+        },
+        createVote: async (root, data, { mongo: { Votes }, user }) => {
+            const newVote = {
+                userId: user && user._id,
+                linkId: new ObjectID(data.linkId),
+            };
+            const response = await Votes.insert(newVote);
+            return Object.assign({ id: response.insertedIds[0] }, newVote);
+        },
     },
     Link: {
         id: root => root._id || root.id,
@@ -38,5 +45,16 @@ module.exports = {
     },
     User: {
         id: root => root._id || root.id,
+    },
+    Vote: {
+        id: root => root._id || root.id,
+
+        user: async ({ userId }, data, { mongo: { Users } }) => {
+            return await Users.findOne({ _id: userId });
+        },
+
+        link: async ({ linkId }, data, { mongo: { Links } }) => {
+            return await Links.findOne({ _id: linkId });
+        },
     },
 };
