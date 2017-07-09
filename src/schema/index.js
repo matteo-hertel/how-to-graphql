@@ -22,21 +22,24 @@ const typeDefs = `
         token: String
         user: User
     }
+    type Vote {
+        id: ID!
+        user: User!
+        link: Link!
+    }
     type Mutation {
         createLink(url: String!, description: String!): Link
+        createVote(linkId: ID!): Vote
         createUser(name: String!, authProvider: AuthProviderSignupData!): User
         signinUser(email: AUTH_PROVIDER_EMAIL): SigninPayload!
     }
-
     input AuthProviderSignupData {
         email: AUTH_PROVIDER_EMAIL
     }
-
     input AUTH_PROVIDER_EMAIL {
         email: String!
         password: String!
     }
-
 `;
 
 // Generate the schema object from your types definition.
