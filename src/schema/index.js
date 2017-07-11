@@ -18,6 +18,7 @@ const typeDefs = `
         id: ID!
         name: String!
         email: String
+        votes: [Vote!]!
     }
     type SigninPayload {
         token: String
