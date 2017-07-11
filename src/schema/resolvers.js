@@ -1,3 +1,4 @@
+const { ObjectID } = require('mongodb')
 module.exports = {
     Query: {
         allLinks: async (root, data, { mongo: { Links } }) => { // 1

@@ -15,6 +15,7 @@
   },
   "scripts": {
     "dev": "nodemon ./src",
+    "start": "node ./src",
     "init-db": "docker run -p 27017:27017 -d mongo"
   }
 }
