@@ -1,4 +1,13 @@
-const { ObjectID } = require('mongodb')
+const { ObjectID } = require('mongodb');
+const { URL } = require('url');
+
+function assertValidLink({ url }) {
+    try {
+        new URL(url);
+    } catch (error) {
+        throw new Error('Link validation error: invalid url.');
+    }
+}
 module.exports = {
     Query: {
         allLinks: async (root, data, { mongo: { Links } }) => { // 1
