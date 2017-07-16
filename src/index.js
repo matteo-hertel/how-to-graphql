@@ -11,6 +11,7 @@ const schema = require('./schema');
 const connectMongo = require('./mongo-connector');
 const { authenticate } = require('./authentication');
 const buildDataloaders = require('./dataloaders');
+const formatError = require('./formatError');
 
 const start = async () => {
 
@@ -19,8 +20,12 @@ const start = async () => {
     const buildOptions = async (req, res) => {
         const user = await authenticate(req, mongo.Users);
         return {
-            dataloaders: buildDataloaders(mongo),
-            context: { mongo, user }, // This context object is passed to all resolvers.
+            context: {
+                mongo,
+                user,
+                formatError,
+                dataloaders: buildDataloaders(mongo),
+            },
             schema,
         };
     };
