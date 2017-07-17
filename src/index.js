@@ -23,9 +23,9 @@ const start = async () => {
             context: {
                 mongo,
                 user,
-                formatError,
                 dataloaders: buildDataloaders(mongo),
             },
+            formatError,
             schema,
         };
     };
