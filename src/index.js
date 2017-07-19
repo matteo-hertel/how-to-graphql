@@ -15,6 +15,7 @@ const { authenticate } = require('./authentication');
 const buildDataloaders = require('./dataloaders');
 const formatError = require('./formatError');
 
+const PORT = process.env.SERVER_PORT || 3456;
 const start = async () => {
 
     const mongo = await connectMongo();
@@ -44,9 +45,10 @@ const start = async () => {
     app.use('/graphiql', graphiqlExpress({
         endpointURL: '/graphql',
         passHeader: `'Authorization': 'bearer token-test@test.com'`,
+        subscriptionsEndpoint: `ws://localhost:${PORT}/subscriptions`,
+
     }));
 
-    const PORT = process.env.SERVER_PORT || 3456;
     const server = createServer(app);
     server.listen(PORT, () => {
         SubscriptionServer.create(
