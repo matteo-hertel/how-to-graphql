@@ -13,7 +13,8 @@
     "graphql": "^0.10.5",
     "graphql-subscriptions": "^0.4.4",
     "graphql-tools": "^1.1.0",
-    "mongodb": "^2.2.30"
+    "mongodb": "^2.2.30",
+    "subscriptions-transport-ws": "^0.8.2"
   },
   "scripts": {
     "dev": "nodemon ./src",
