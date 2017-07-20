@@ -30,7 +30,7 @@ const typeDefs = `
     }
 
     type Query {
-        allLinks: [Link!]!
+        allLinks(filter: LinkFilter): [Link!]!
     }
 
     type User {
@@ -60,6 +60,11 @@ const typeDefs = `
     input AUTH_PROVIDER_EMAIL {
         email: String!
         password: String!
+    }
+    input LinkFilter {
+        OR: [LinkFilter!]
+        description_contains: String
+        url_contains: String
     }
 `;
 
