@@ -16,10 +16,27 @@ function assertValidLink({ url }) {
         throw new ValidationError('Link validation error: invalid url.', 'url');
     }
 }
+
+function buildFilters({ OR = [], description_contains, url_contains }) {
+    const filter = (description_contains || url_contains) ? {} : null;
+    if (description_contains) {
+        filter.description = { $regex: `.*${description_contains}.*` };
+    }
+    if (url_contains) {
+        filter.url = { $regex: `.*${url_contains}.*` };
+    }
+
+    let filters = filter ? [filter] : [];
+    for (let i = 0; i < OR.length; i++) {
+        filters = filters.concat(buildFilters(OR[i]));
+    }
+    return filters;
+}
 module.exports = {
     Query: {
-        allLinks: async (root, data, { mongo: { Links } }) => { // 1
-            return await Links.find({}).toArray(); // 2
+        allLinks: async (root, { filter }, { mongo: { Links, Users } }) => {
+            let query = filter ? { $or: buildFilters(filter) } : {};
+            return await Links.find(query).toArray();
         },
     },
     Mutation: {
